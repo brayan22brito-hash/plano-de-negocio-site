@@ -1,0 +1,65 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#7e1d2d">
+  <meta name="description" content="Plano de negócios do Grupo Elinad: apresentação interativa com Chicha UAI, portfólio, público-alvo, concorrência e pesquisa de mercado.">
+  <title>Grupo Elinad | Plano de negócios</title>
+  <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="styles.css">
+  <script src="content.js" defer></script>
+  <script src="app.js" defer></script>
+</head>
+<body data-mode="apresentar" data-motion="smooth">
+  <a class="skip-link" href="#main">Ir para o conteúdo</a>
+  <div class="app-shell">
+    <header class="toolbar">
+      <button type="button" class="wordmark" id="home-btn" aria-label="Grupo Elinad, ir para a abertura"><span>GRUPO</span><strong>ELINAD<span class="brand-dot" aria-hidden="true">.</span></strong></button>
+      <div class="mode-switch" role="group" aria-label="Modo de uso">
+        <button type="button" id="present-btn" aria-pressed="true"><span class="mode-icon" aria-hidden="true">▻</span> Apresentar</button>
+        <button type="button" id="read-btn" aria-pressed="false"><span class="mode-icon" aria-hidden="true">≡</span> Consultar</button>
+      </div>
+      <div class="toolbar-actions">
+        <button type="button" class="tool-button stages-button" id="stages-btn" aria-label="Menu geral de etapas do plano" aria-haspopup="dialog" aria-controls="stages-dialog" title="Etapas do plano (E)"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 3h7v7H3zM14 3h7v7h-7zM3 14h7v7H3zM14 14h7v7h-7z"/></svg><span>Etapas</span></button>
+        <button type="button" class="tool-button" id="topics-btn" aria-label="Slides da etapa selecionada" aria-haspopup="dialog" aria-controls="topics-dialog" title="Slides desta etapa (G)"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 6h16M4 12h16M4 18h16"/></svg><span>Slides</span></button>
+        <button type="button" class="tool-button" id="settings-btn" aria-label="Opções de movimentos, atalhos e versão HTML" aria-haspopup="dialog" aria-controls="settings-dialog" title="Movimentos, atalhos e versão HTML"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 7h16M4 17h16M8 4v6M16 14v6"/></svg><span class="settings-label">Opções</span></button>
+        <button type="button" class="tool-button fullscreen-btn" id="fullscreen-btn" aria-label="Tela cheia" aria-pressed="false" title="Tela cheia (F)"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 3H3v6M15 3h6v6M21 15v6h-6M3 15v6h6"/></svg><span>Tela cheia</span></button>
+      </div>
+    </header>
+    <div class="stage-breadcrumb"><span class="stage-breadcrumb-label">Etapa em exibição</span><strong id="current-stage-name">Definição do negócio e diferencial</strong><button type="button" data-open-stages aria-label="Trocar de etapa">Trocar etapa <span aria-hidden="true">↗</span></button></div>
+    <main id="main" class="stage" tabindex="-1" aria-label="Plano de negócios do Grupo Elinad"></main>
+    <footer class="presentation-controls">
+      <div class="progress-line" role="progressbar" aria-label="Progresso da etapa selecionada" aria-valuemin="1" aria-valuemax="3" aria-valuenow="1"><span id="progress-fill"></span></div>
+      <div class="slide-context"><span id="slide-count">1 / 3</span><span class="context-separator" aria-hidden="true"></span><span id="slide-name">Abertura</span></div>
+      <div class="keyboard-hint"><kbd>←</kbd><kbd>→</kbd><span>para navegar</span></div>
+      <div class="navigation-buttons">
+        <button type="button" id="prev-btn" class="nav-button" aria-label="Tela anterior" disabled><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m14 6-6 6 6 6"/></svg></button>
+        <button type="button" id="next-btn" class="nav-button nav-next" aria-label="Próxima tela"><span>Próxima</span><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m10 6 6 6-6 6"/></svg></button>
+      </div>
+    </footer>
+  </div>
+  <dialog id="stages-dialog" class="stages-dialog" aria-labelledby="stages-title">
+    <div class="dialog-heading"><div><span class="eyebrow">Grupo Elinad</span><h2 id="stages-title">Etapas do plano</h2><p class="stages-intro">Escolha uma etapa para apresentar ou consultar.</p></div><button type="button" class="close-button" data-close-dialog="stages-dialog" aria-label="Fechar menu geral de etapas">×</button></div>
+    <nav id="stages-list" aria-label="Etapas do plano de negócios"></nav>
+    <p class="dialog-footnote">Os conteúdos anteriores continuam disponíveis. A troca de etapa mantém o modo de uso.</p>
+  </dialog>
+  <dialog id="topics-dialog" class="topics-dialog" aria-labelledby="topics-title">
+    <div class="dialog-heading"><div><span class="eyebrow" id="topics-stage-name">Definição do negócio e diferencial</span><h2 id="topics-title">Slides desta etapa</h2></div><button type="button" class="close-button" data-close-dialog="topics-dialog" aria-label="Fechar menu de slides">×</button></div>
+    <nav id="topics-list" aria-label="Slides da etapa selecionada"></nav>
+    <p class="dialog-footnote">Para acessar outra parte do plano, use o menu geral de Etapas.</p>
+  </dialog>
+  <dialog id="settings-dialog" class="settings-dialog" aria-labelledby="settings-title">
+    <div class="dialog-heading"><h2 id="settings-title">Opções da apresentação</h2><button type="button" class="close-button" data-close-dialog="settings-dialog" aria-label="Fechar opções">×</button></div>
+    <label class="setting-label" for="motion-select">Movimentos</label>
+    <select id="motion-select"><option value="smooth">Suaves</option><option value="reduced">Reduzidos</option><option value="off">Desativados</option></select>
+    <p class="small-note">A preferência do sistema é respeitada no primeiro acesso.</p>
+    <div class="shortcut-list"><h3>Atalhos</h3><dl><div><dt><kbd>←</kbd> <kbd>→</kbd></dt><dd>Slide anterior / próximo nesta etapa</dd></div><div><dt><kbd>Home</kbd> <kbd>End</kbd></dt><dd>Primeiro / último slide da etapa</dd></div><div><dt><kbd>M</kbd></dt><dd>Alternar o modo de uso</dd></div><div><dt><kbd>E</kbd></dt><dd>Abrir etapas do plano</dd></div><div><dt><kbd>G</kbd></dt><dd>Abrir slides desta etapa</dd></div><div><dt><kbd>F</kbd></dt><dd>Tela cheia</dd></div><div><dt><kbd>Esc</kbd></dt><dd>Fechar o menu ou sair da ampliação</dd></div></dl></div>
+    <a class="primary-link offline-download" href="downloads/Grupo_Elinad_Apresentacao.html" download="Grupo_Elinad_Apresentacao.html">Baixar versão HTML <span aria-hidden="true">↓</span></a>
+    <p class="small-note">O HTML funciona sem internet. Google Forms e referências externas precisam de conexão.</p>
+  </dialog>
+  <div id="announcement" class="visually-hidden" aria-live="polite" aria-atomic="true"></div>
+  <div id="toast" class="toast" role="status" hidden></div>
+  <noscript><div class="noscript"><h1>Grupo Elinad</h1><p>Ative o JavaScript do navegador para usar a apresentação e seus dois modos.</p></div></noscript>
+</body>
+</html>
